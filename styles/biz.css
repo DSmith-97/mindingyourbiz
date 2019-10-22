@@ -5,3 +5,9 @@
 .sample_work {
   height: 90px;
 }
+
+.sub_pic {
+  padding: 10px;
+  width: 100%;
+  height: 325px;
+}
