@@ -11,3 +11,19 @@ img.sub_pic {
   width: 100%;
   height: 325px;
 }
+
+.modal-body img {
+  margin: 20px;
+/* padding: 1px; */
+width: 90%;
+}
+
+.modal-content {
+  width: 355px;
+  height: 420px;
+}
+
+@media (max-width: 1200px)
+body {
+    display: none;
+}
