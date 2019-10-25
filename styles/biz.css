@@ -13,17 +13,43 @@ img.sub_pic {
 }
 
 .modal-body img {
-  margin: 20px;
+  margin: 15px;
 /* padding: 1px; */
 width: 90%;
 }
 
 .modal-content {
   width: 355px;
-  height: 420px;
+  height: 455px;
 }
 
 @media (max-width: 1200px)
 body {
     display: none;
 }
+
+.close_sample {
+  margin-top: -10px;
+  margin-right: 17px;
+  width: 328px;
+  height: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{}

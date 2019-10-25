@@ -21,6 +21,8 @@ function showName(x) {
   console.log("imgElement : " + newSrc);
 }
 
+$("#getData").on("click", getSubscriberEmail);
+
 // Slideshow Apartment Images
 var slideIndex = 1;
 showDivs(slideIndex);
@@ -51,7 +53,15 @@ function showDivs(n) {
 
 function getSubscriberEmail() {
   var subscriberEmail;
+  var data;
+  var index = 1;
   $.ajax({
-    url:
+    url: "https://api.myjson.com/bins/7i1p8",
+    method: "Get",
+    success: function(dataStore){
+      data = dataStore;
+      $("#output").val("");
+      $("#output").val(data.subscriberList[index]);
+    }
   });
 }
