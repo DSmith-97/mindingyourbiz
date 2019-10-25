@@ -21,7 +21,9 @@ function showName(x) {
   console.log("imgElement : " + newSrc);
 }
 
-$("#getData").on("click", getSubscriberEmail);
+$("#getData").on("click", function(){
+  getDataStore("addEmailAddress");
+});
 
 // Slideshow Apartment Images
 var slideIndex = 1;
@@ -51,8 +53,8 @@ function showDivs(n) {
   dots[slideIndex-1].className += " w3-opacity-off1";
 }
 
-function getSubscriberEmail() {
-  var subscriberEmail;
+function getDataStore(action) {
+  var subscriberEmailList;
   var data;
   var index = 1;
   $.ajax({
@@ -61,7 +63,53 @@ function getSubscriberEmail() {
     success: function(dataStore){
       data = dataStore;
       $("#output").val("");
+      // populate text box with email address
       $("#output").val(data.subscriberList[index]);
+      subscriberEmailList = data.subscriberList;
+    },
+    complete: function() {
+        performDataAction(data, action);
     }
   });
 }
+
+function performDataAction(data, action) {
+  if (action == "addEmailAddress") {
+    getEmailAddressList(data);
+  }
+}
+
+function getEmailAddressList(data) {
+  // get dataStore object
+  var emailList = data.subscriberList;
+  console.log(emailList);
+  // store email array to variable
+
+  // add new array to variable
+
+  // save email array back to dataStore
+
+}
+
+function addSubscriberEmil() {
+
+}
+
+function restoreDataStore() {
+  $.ajax({
+    url:"https://api.myjson.com/bins/1c5b64",
+    type:"PUT",
+    data:dataStore,
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+    success: function(data, textStatus, jqXHR){
+		console.log(textStatus);
+    }
+});
+}
+
+
+
+
+
+//---//
