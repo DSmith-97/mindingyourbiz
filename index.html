@@ -92,6 +92,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     <p><li>Donate as little as $1</li></p>
     <p><li>Give us a mention on your favorite social media platform</li></p>
     <p><li>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></li></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="hosted_button_id" value="YN37A7SJBGM7A" />
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+      <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+    </form>
+
+
     <hr>
 
     <h4><strong>Subscribe</strong></h4>
@@ -109,23 +117,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     <i class="fa fa-envelope" style="width:30px"> </i> Email: prof_derricksmith@yahoo.com<br>
     <br />
     <p>Questions? Go ahead, ask me:</p>
-    <form action="/action_page.php" target="_blank">
+    <div class="alert alert-success contactAdded success-alert hidden">
+      <strong>Got it!</strong> Your information has been sent successfully!
+    </div>
+    <div>
       <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-    <button type="submit" class="w3-button w3-green w3-third">Send a Message</button>
-    </form>
+      <button class="w3-button w3-green w3-third sendContact">Send a Message</button>
+    </div>
   </div>
 
 <hr>
 <br />
-
-  <div class="w3-container" id="outputArea">
-    <textarea id="output" style="width: 317px; height: 100px;">
-    </textarea>
-    <br />
-    <button onclick="" type="button" id="getData" class="btn btn-primary">Submit</button>
-  </div>
 
   <footer class="w3-container w3-padding-16" style="margin-top:32px">Powered by DSWebTime</footer>
 
@@ -138,9 +142,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     <div class="w3-container w3-white w3-center">
       <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
       <h2 class="w3-wide">SUBSCRIBE</h2>
-      <p>Enter your email address to receive your free gift for showcasing your business.</p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
-      <button type="button" class="w3-button w3-padding-large w3-green w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Subscribe</button>
+      <div class="subscribeContent">
+        <p class="beforeSub">Enter your email address to receive your free gift for showcasing your business.</p>
+        <p class="beforeSub"><input class="w3-input w3-border newEmailSubscriber" type="text" placeholder="Enter e-mail"></p>
+        <button type="button" class="w3-button w3-padding-large w3-green w3-margin-bottom subscribeSubmit" >Subscribe</button>
+        <p class="afterSub" style="font-size: 36px; display: none">Thank You For Subscribing!</p>
+      </div>
     </div>
   </div>
 </div>

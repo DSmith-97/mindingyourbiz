@@ -21,9 +21,18 @@ function showName(x) {
   console.log("imgElement : " + newSrc);
 }
 
-$("#getData").on("click", function(){
-  getDataStore("addEmailAddress");
+$("#getEmail").on("click", function() {
+  accessDataStore("getEmailAddressList");
 });
+
+$(".sendContact").on("click", function() {
+  accessDataStore("addNewContact");
+});
+
+$(".subscribeSubmit").on("click", function() {
+  accessDataStore("addSubscriberEmail");
+});
+
 
 // Slideshow Apartment Images
 var slideIndex = 1;
@@ -53,7 +62,7 @@ function showDivs(n) {
   dots[slideIndex-1].className += " w3-opacity-off1";
 }
 
-function getDataStore(action) {
+function accessDataStore(action) {
   var subscriberEmailList;
   var data;
   var index = 1;
@@ -62,10 +71,6 @@ function getDataStore(action) {
     method: "Get",
     success: function(dataStore){
       data = dataStore;
-      $("#output").val("");
-      // populate text box with email address
-      $("#output").val(data.subscriberList[index]);
-      subscriberEmailList = data.subscriberList;
     },
     complete: function() {
         performDataAction(data, action);
@@ -73,40 +78,114 @@ function getDataStore(action) {
   });
 }
 
-function performDataAction(data, action) {
-  if (action == "addEmailAddress") {
-    getEmailAddressList(data);
+function performDataAction(data, action, newData) {
+  switch (action) {
+    case "getEmailAddressList":
+      getEmailAddressList(data);
+      break;
+    case "addNewContact":
+      addNewContact(data);
+      break;
+    case "addSubscriberEmail":
+      addSubscriberEmail(data);
+      break;
+    default:
   }
 }
 
+// admin function
 function getEmailAddressList(data) {
-  // get dataStore object
   var emailList = data.subscriberList;
-  console.log(emailList);
-  // store email array to variable
-
-  // add new array to variable
-
-  // save email array back to dataStore
-
 }
 
-function addSubscriberEmil() {
+function addNewContact(data) {
+  var contactList = data.contactList;
 
-}
+  var contactName = $("input[name='Name']").val();
+  var contactEmail = $("input[name='Email']").val();
+  var contactMessage = $("input[name='Message']").val();
 
-function restoreDataStore() {
-  $.ajax({
-    url:"https://api.myjson.com/bins/1c5b64",
-    type:"PUT",
-    data:dataStore,
-    contentType:"application/json; charset=utf-8",
-    dataType:"json",
-    success: function(data, textStatus, jqXHR){
-		console.log(textStatus);
+  var newContact = {
+    name: contactName,
+    email: contactEmail,
+    message: contactEmail
+  };
+
+  var contactSectionIsValid = function() {
+
+    if ( contactName != "" && contactEmail != "" && contactEmail != "" ) {
+      return true;
+    } else {
+      return false;
     }
-});
+  }
+
+  if (contactSectionIsValid()) {
+    contactList.push(newContact);
+
+    // save updatedDataStore
+    updateDataStore(data);
+
+    var contactName = $("input[name='Name']").val("");
+    var contactEmail = $("input[name='Email']").val("");
+    var contactMessage = $("input[name='Message']").val("");
+
+    // clean up alerts
+    $(".success-alert").removeClass("hidden");
+    $(".success-alert").fadeOut(5000);
+  }
+
 }
+
+function addSubscriberEmail(data) {
+  // extract emmail array
+  var emailList = data.subscriberList;
+
+  // add new email to array list
+  var newEmailAddress = $(".newEmailSubscriber").val().trim();
+
+  if (newEmailAddress != "" && newEmailAddress.indexOf("@") > -1) {
+      emailList.push(newEmailAddress);
+      var newEmailList = emailList;
+      // add email array back to dataStore object
+      data.subscriberList = newEmailList;
+
+      // save updateDataStore
+      updateDataStore(data);
+
+      // hide subscriber modal content and show thank you
+      $(".beforeSub").hide();
+      $(".subscribeSubmit").hide();
+      $(".afterSub").fadeIn();
+
+      setTimeout(function(){
+        // clear out previous entry
+        $(".newEmailSubscriber").val("");
+
+        // reset modal elements
+        document.getElementById('subscribe').style.display='none';
+        $(".beforeSub").show();
+        $(".subscribeSubmit").show();
+        $(".afterSub").hide();
+      }, 2000);
+  } else {
+    alert("Please enter a valid email address");
+  }
+}
+
+// admin function
+// function updateDataStore(updatedDataStore) {
+//   $.ajax({
+//     url:"https://api.myjson.com/bins/7i1p8",
+//     type:"PUT",
+//     data: JSON.stringify(updatedDataStore),
+//     contentType:"application/json; charset=utf-8",
+//     dataType:"json",
+//     success: function(data, textStatus, jqXHR){
+// 		// alert(textStatus);
+//     }
+// });
+// }
 
 
 
