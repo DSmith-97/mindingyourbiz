@@ -133,7 +133,7 @@ function addNewContact(data) {
   var newContact = {
     name: contactName,
     email: contactEmail,
-    message: contactEmail
+    message: contactMessage
   };
 
   var contactSectionIsValid = function() {
