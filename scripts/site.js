@@ -33,6 +33,9 @@ $(".subscribeSubmit").on("click", function() {
   accessDataStore("addSubscriberEmail");
 });
 
+$(".contactLink").on("click", function(){
+  $("#contact").show();
+})
 
 // Slideshow Apartment Images
 var slideIndex = 1;
