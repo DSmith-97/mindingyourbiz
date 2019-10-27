@@ -35,7 +35,16 @@ $(".subscribeSubmit").on("click", function() {
 
 $(".contactLink").on("click", function(){
   $("#contact").show();
-})
+});
+
+$(".recommentLink").on("click", function(){
+  $("input[name='Name']").focus();
+  $("#recommendText").fadeOut().delay(10)
+  .fadeIn().delay(10).fadeOut().delay(10)
+  .fadeIn().delay(10).fadeOut().delay(10)
+  .fadeIn()
+});
+
 
 // Slideshow Apartment Images
 var slideIndex = 1;
