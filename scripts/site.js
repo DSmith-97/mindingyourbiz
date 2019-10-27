@@ -144,7 +144,7 @@ function addNewContact(data) {
     var contactMessage = $("input[name='Message']").val("");
 
     // clean up alerts
-    $(".success-alert").removeClass("hidden");
+    $(".success-alert").show();
     $(".success-alert").fadeOut(5000);
   }
 
