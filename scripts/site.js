@@ -62,6 +62,19 @@ function showDivs(n) {
   dots[slideIndex-1].className += " w3-opacity-off1";
 }
 
+function updateDataStore(updatedDataStore) {
+  $.ajax({
+    url:"https://api.myjson.com/bins/7i1p8",
+    type:"PUT",
+    data: JSON.stringify(updatedDataStore),
+    contentType:"application/json; charset=utf-8",
+    dataType:"json",
+    success: function(data, textStatus, jqXHR){
+		// alert(textStatus);
+    }
+});
+}
+
 function accessDataStore(action) {
   var subscriberEmailList;
   var data;
@@ -173,19 +186,7 @@ function addSubscriberEmail(data) {
   }
 }
 
-// admin function
-// function updateDataStore(updatedDataStore) {
-//   $.ajax({
-//     url:"https://api.myjson.com/bins/7i1p8",
-//     type:"PUT",
-//     data: JSON.stringify(updatedDataStore),
-//     contentType:"application/json; charset=utf-8",
-//     dataType:"json",
-//     success: function(data, textStatus, jqXHR){
-// 		// alert(textStatus);
-//     }
-// });
-// }
+
 
 
 
