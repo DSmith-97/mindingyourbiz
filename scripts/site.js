@@ -37,6 +37,10 @@ $(".contactLink").on("click", function(){
   $("#contact").show();
 });
 
+$(".submitBusiness").on("click", function(){
+  accessDataStore("submitBusiness");
+});
+
 $(".recommentLink").on("click", function(){
   $("input[name='Name']").focus();
   $("#recommendText").fadeOut().delay(10)
@@ -114,6 +118,9 @@ function performDataAction(data, action, newData) {
     case "addSubscriberEmail":
       addSubscriberEmail(data);
       break;
+    case "submitBusiness":
+      submitBusiness(data);
+      break;
     default:
   }
 }
@@ -159,8 +166,41 @@ function addNewContact(data) {
     $(".success-alert").show();
     $(".success-alert").fadeOut(5000);
   }
+}
+
+function submitBusiness(data) {
+  var newBusinessList = data.newBusinessList;
+
+  var businessOwnerName = $("input[name='businessOwnerName']").val();
+  var businessOwnerContactNumber = $("input[name='businessOwnerContactNumber']").val();
+  var businessOwnerContactEmail = $("input[name='businessOwnerContactEmail']").val();
+  var businessName = $("input[name='businessName']").val();
+  var businessType = $("input[name='businessType']").val();
+  var businessCity = $("input[name='businessCity']").val();
+  var businessState = $("#businessState").val();
+  var businessContactable = $("input[name='businessContactable']:checked").val();
+  var businessComment = $("#businessComment").val();
+
+  var newBusiness = {
+    businessOwnerName: businessOwnerName,
+    businessOwnerContactNumber: businessOwnerContactNumber,
+    businessOwnerContactEmail: businessOwnerContactEmail,
+    businessName: businessName,
+    businessType: businessType,
+    businessCity: businessCity,
+    businessState: businessState,
+    businessContactable: businessContactable,
+    businessComment: businessComment,
+    active: true
+  };
+
+  newBusinessList.push(newBusiness);
+
+  // save updatedDataStore
+  updateDataStore(data);
 
 }
+
 
 function addSubscriberEmail(data) {
   // extract emmail array

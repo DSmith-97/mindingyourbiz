@@ -14,14 +14,15 @@ var dataStore = {
   ],
   "newBusinessList" : [
     {
-      "ownerName" : "Mr. Pibb",
-      "contactNumber" : "555-222-2345",
+      "businessOwnerName" : "Mr. Pibb",
+      "businessOwnerContactNumber" : "555-222-2345",
+      "businessOwnerContactEmail" : "biz@email.com",
       "businessName" : "business1",
-      "type" : "pest control",
-      "city" : "palm bay",
-      "state" : "Florida",
-      "contactable" : "yes",
-      "comment" : "some comment here",
+      "businessType" : "pest control",
+      "businessCity" : "palm bay",
+      "businessState" : "Florida",
+      "businessContactable" : "yes",
+      "businessComment" : "some comment here",
       "active" : "yes"
     }
   ]
@@ -38,4 +39,4 @@ $.ajax({
     success: function(data, textStatus, jqXHR){
 		console.log(textStatus);
     }
-});   
+});

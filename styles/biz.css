@@ -35,7 +35,11 @@ body {
   height: 35px;
 }
 
-
+footer {
+  text-align: center;
+  background-color: #edf1f4;
+  margin-top: 32px;
+}
 
 
 
