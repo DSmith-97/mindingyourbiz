@@ -204,6 +204,10 @@ function submitBusiness(data) {
   // save updatedDataStore
   updateDataStore(data);
 
+  $(".recommendText").show();
+  $(".recommendText").fadeOut(5000);
+  $("#businessComment").val("");
+  $(".w3-input").val("");
 }
 
 
