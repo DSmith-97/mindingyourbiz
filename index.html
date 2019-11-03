@@ -25,12 +25,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     <!-- <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-window-restore" aria-hidden="true"></i> Showcase</a>
     <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-cogs" aria-hidden="true"></i> Services</a> -->
     <a href="./recommendation.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white recommentLink"><i class="fa fa-commenting" aria-hidden="true"></i> Recommend a Biz</a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white contactLink"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a>
+    <a href="./contact.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white contactLink"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a>
+
   </div>
   </div>
   <div class="w3-bar-block">
     <a href="./about.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-building"></i> What's the catch?</a>
-    <!-- <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-16" onclick="document.getElementById('subscribe').style.display='block'"><i class="fa fa-handshake-o" aria-hidden="true"></i> Join My Team</a> -->
     <a href="#donate" class="w3-bar-item w3-button w3-padding-16"></i><i class="fa fa-credit-card" aria-hidden="true"></i> Donate</a>
   </div>
 </nav>
@@ -87,22 +87,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     </div>
     <hr>
 
-    <div id="donate">
-      <h4><strong>Wanna Help?</strong></h4>
-      <p>Like what we're doing? Feel free to make a donation to help us support our small businesses.</p>
-      <p><li>Donate as little as $1</li></p>
-      <p><li>Give us a mention on your favorite social media platform</li></p>
-      <p><li>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></li></p>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="YN37A7SJBGM7A" />
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-      </form>
-    </div>
-
-    <hr>
-
     <h4><strong>Subscribe</strong></h4>
     <p>We will be announcing <strong>Free Givaways!</strong> to all businesses that are selected to appear on our publication.</p>
     <p>Subscribe to receive updates and announcements for our winners!</p>
@@ -122,20 +106,30 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     <div>
       <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <button class="w3-button w3-green w3-third sendContact">Send a Message</button>
+      <p><textarea class="w3-input w3-border" rows="8" placeholder="Message" required name="Message"></textarea></p>
+      <button class="w3-button w3-green w3-third sendContact">Send Message</button>
     </div>
   </div>
 
 <hr>
 
-<div class="w3-container" id="contact" style="display: none">
-  <h2>Contact</h2>
-  <i class="fa fa-map-marker" style="width:30px"></i> Palm Bay, Florida<br>
-  <i class="fa fa-phone" style="width:30px"></i> Phone: +321 368-6798<br>
-  <i class="fa fa-envelope" style="width:30px"> </i> Email: prof_derricksmith@yahoo.com<br>
+<div class="w3-container">
+  <div id="donate">
+    <h4><strong>Wanna Help?</strong></h4>
+    <p>Like what we're doing? Feel free to make a donation to help us support our small businesses.</p>
+    <p><li>Donate as little as $1</li></p>
+    <p><li>Give us a mention on your favorite social media platform</li></p>
+    <p><li>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></li></p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="hosted_button_id" value="YN37A7SJBGM7A" />
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+      <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+    </form>
+  </div>
 </div>
-  <footer class="w3-container w3-padding-16" style="margin-top:32px">Powered by DSWebTime</footer>
+
+<footer class="w3-container w3-padding-16" style="margin-top:32px">Powered by DSWebTime</footer>
 
 <!-- End page content -->
 </div>

@@ -41,13 +41,13 @@ $(".submitBusiness").on("click", function(){
   accessDataStore("submitBusiness");
 });
 
-$(".recommentLink").on("click", function(){
-  $("input[name='Name']").focus();
-  $("#recommendText").fadeOut().delay(10)
-  .fadeIn().delay(10).fadeOut().delay(10)
-  .fadeIn().delay(10).fadeOut().delay(10)
-  .fadeIn()
-});
+// $(".recommentLink").on("click", function(){
+//   $("input[name='Name']").focus();
+//   $("#recommendText").fadeOut().delay(10)
+//   .fadeIn().delay(10).fadeOut().delay(10)
+//   .fadeIn().delay(10).fadeOut().delay(10)
+//   .fadeIn()
+// });
 
 
 // Slideshow Apartment Images
@@ -238,6 +238,9 @@ function addSubscriberEmail(data) {
   }
 }
 
+function showDonate() {
+  $("#donate").css("visibility", "visible")
+}
 
 
 

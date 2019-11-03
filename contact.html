@@ -25,13 +25,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
     <!-- <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-window-restore" aria-hidden="true"></i> Showcase</a>
     <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-cogs" aria-hidden="true"></i> Services</a> -->
     <a href="./recommendation.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white recommentLink"><i class="fa fa-commenting" aria-hidden="true"></i> Recommend a Biz</a>
-    <a href="./contact.html" data-toggle="tooltip" title="Hooray!" class="w3-bar-item w3-button w3-hover-white contactLink"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white contactLink"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a>
   </div>
   </div>
   <div class="w3-bar-block">
     <a href="./about.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-building"></i> What's the catch?</a>
     <!-- <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-16" onclick="document.getElementById('subscribe').style.display='block'"><i class="fa fa-handshake-o" aria-hidden="true"></i> Join My Team</a> -->
-    <a href="#donate" class="w3-bar-item w3-button w3-padding-16"></i><i class="fa fa-credit-card" aria-hidden="true"></i> Donate</a>
+    <a href="#donate" onclick="showDonate()" class="w3-bar-item w3-button w3-padding-16"></i><i class="fa fa-credit-card" aria-hidden="true"></i> Donate</a>
   </div>
 </nav>
 
@@ -45,68 +45,31 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main w3-white" style="margin-left:260px">
+<div class="w3-main w3-white w3-container" style="margin-left:260px">
 
   <!-- Push down content on small screens -->
   <div class="w3-hide-large" style="margin-top:80px"></div>
 
-  <!-- Slideshow Header -->
   <div class="w3-container">
     <h2 class="w3-text-green">Showcasing Our Best Small Businesses</h2>
-    <!-- Recommend a Business -->
+    <!-- body section -->
     <div class="w3-container">
-      <div>&nbsp; <span id="recommendText" class="alert alert-info" style="display: none">Submit Recommendation Here!</span> </div>
-
-      <h2 class="whyTitle">How can this be free..  So what's the catch?</h2>
-      <div class="row">
-        <div class="col-sm-3"><img src="./images/author_graphic4.jpg"></div>
-        <div class="col-sm-6">
-          <p class="aboutText">
-            It just so happens that there really is <strong><u>no</u> <u>catch</u></strong>. This space is truly 100% free
-            for all small business owners and side hustle players alike.
-          </p>
-          <p class="aboutText">
-            All of the content displayed here has been done so with the permission of each business.
-          </p>
-        </div>
+        <h3>Have an immediate need?</h3>
+        <h4>Contact me with the information below: </h4>
+        <br /><br />
+        <i class="fa fa-map-marker" style="width:30px"></i> Palm Bay, Florida<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: +321 368-6798<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: prof_derricksmith@yahoo.com<br>
       </div>
 
-      <h2 class="whyTitle">Why we do this stuff..    What's in for dsbiztime.com?</h2>
-      <div class="row">
-        <p class="aboutTextFooter">
-          There are so many people in our immediate circles that have very useful and valuable businesses. Why should
-          we not support each other when it comes to goods and services?
-          <br /><br />
+    </div>
 
-          I refuse to believe that life was meant to be about working a job for the better part of our lives and then carving out
-          some time to spend with family and friends.  No Way!!
-          <br /><br />
-
-          What if we all made an effort to support the local person.. I'm talking about the people you hit "Like" and "Share" for
-          every day! What would happen if we increased the size of our bank accounts by utilizing the talents and skills of the
-          folks that we call "friends"?
-          <br /><br />
-
-          I support you, you support me.. We bring in more people, more customers, more <strong>MONEY!!</strong>
-          <br /><br />
-
-          That's right, I said it! Who doesn't want to be financially healthy? <br />
-          Then let's do it together!
-
-          <br /><br />
-          I strongly believe in good karma!
-          <br />
-          So let me start this movement right here and right now!
-          <br />
-          Let me know how I can help you too!
-        </p>
-      </div>
-
-
-      <hr>
-
-      <div id="donate">
-        <h4><strong>Believe in this idea? Help me keep it going for businesses just like yours.</strong></h4>
+    <div class="w3-container">
+      <div class="row">&nbsp;</div>
+      <div id="donate"  donate_contact" style="visibility: hidden">
+        <hr>
+        <h4><strong>Wanna Help?</strong></h4>
+        <p>Like what we're doing? Feel free to make a donation to help us support our small businesses.</p>
         <p><li>Donate as little as $1</li></p>
         <p><li>Give us a mention on your favorite social media platform</li></p>
         <p><li>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></li></p>
@@ -117,23 +80,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
           <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
         </form>
       </div>
-
     </div>
 
-
+        <div id="spacer" style="height: 105px">&nbsp;</div>
 
   </div>
 
-  <footer>Powered by DSWebTime</footer>
+
+<footer class="w3-container w3-padding-16" style="margin-top:32px">Powered by DSWebTime</footer>
 
 <!-- End page content -->
-</div>
 
 <script src="./scripts/site.js">
 </script>
-<scipt>
-
-</script>
-
 </body>
 </html>
