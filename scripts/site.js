@@ -43,10 +43,10 @@ $(".submitBusiness").on("click", function(){
 
 // $(".recommentLink").on("click", function(){
 //   $("input[name='Name']").focus();
-//   $("#recommendText").fadeOut().delay(10)
-//   .fadeIn().delay(10).fadeOut().delay(10)
-//   .fadeIn().delay(10).fadeOut().delay(10)
-//   .fadeIn()
+  // $("#recommendText").fadeOut().delay(10)
+  // .fadeIn().delay(10).fadeOut().delay(10)
+  // .fadeIn().delay(10).fadeOut().delay(10)
+  // .fadeIn()
 // });
 
 
@@ -144,7 +144,6 @@ function addNewContact(data) {
   };
 
   var contactSectionIsValid = function() {
-
     if ( contactName != "" && contactEmail != "" && contactEmail != "" ) {
       return true;
     } else {
@@ -186,28 +185,54 @@ function submitBusiness(data) {
   var businessContactable = $("input[name='businessContactable']:checked").val();
   var businessComment = $("#businessComment").val();
 
-  var newBusiness = {
-    businessOwnerName: businessOwnerName,
-    businessOwnerContactNumber: businessOwnerContactNumber,
-    businessOwnerContactEmail: businessOwnerContactEmail,
-    businessName: businessName,
-    businessType: businessType,
-    businessCity: businessCity,
-    businessState: businessState,
-    businessContactable: businessContactable,
-    businessComment: businessComment,
-    active: true
-  };
+  var recommendSectionIsValid = function() {
+    if ( businessOwnerName != "" &&
+        businessOwnerContactNumber != "" &&
+        businessOwnerContactEmail != "" &&
+        businessName != "" &&
+        businessType != "" &&
+        businessCity != "" &&
+        businessState != "" &&
+        businessComment != "" ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-  newBusinessList.push(newBusiness);
+  if (recommendSectionIsValid() == true) {
+    var newBusiness = {
+      businessOwnerName: businessOwnerName,
+      businessOwnerContactNumber: businessOwnerContactNumber,
+      businessOwnerContactEmail: businessOwnerContactEmail,
+      businessName: businessName,
+      businessType: businessType,
+      businessCity: businessCity,
+      businessState: businessState,
+      businessContactable: businessContactable,
+      businessComment: businessComment,
+      active: true
+    };
 
-  // save updatedDataStore
-  updateDataStore(data);
+    newBusinessList.push(newBusiness);
 
-  $(".recommendText").show();
-  $(".recommendText").fadeOut(5000);
-  $("#businessComment").val("");
-  $(".w3-input").val("");
+    // save updatedDataStore
+    updateDataStore(data);
+
+       // clear form
+    $(".recommendText").show();
+    $(".recommendText").fadeOut(5000);
+    $("#businessComment").val("");
+    $(".w3-input").val("");
+  } else {
+    $(".recommendTextFailed").show();
+    $(".recommendTextFailed").fadeOut().delay(5)
+    .fadeIn().delay(5).fadeOut().delay(5)
+    .fadeIn().delay(5).fadeOut().delay(5)
+    .fadeIn(5);
+    $("#businessComment").val("");
+    $(".w3-input").val("");
+  }
 }
 
 

@@ -60,9 +60,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
       </div>
 
       <h2 style="font-size: 22px; font-weight: bold">Tell us a little about the business..</h2>
-      <div class="alert alert-success contactAdded success-alert" style="display: none">
-        <strong>Got it!</strong> Your information has been sent successfully!
-      </div>
+
       <div>
         <p><input class="w3-input w3-border" type="text" placeholder="Owner Name" required name="businessOwnerName"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Owner Contact Number" required name="businessOwnerContactNumber"></p>
@@ -136,7 +134,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
             &nbsp; <input type="radio" name="businessContactable" checked value="yes">Yes &nbsp;
             &nbsp; <input type="radio" name="businessContactable" value="No">No
         </p>
-        <button class="w3-button w3-green w3-third submitBusiness" style="margin-top: 20px">Submit Recommendation</button>
+        <div class="row">
+          <div class="col-sm-4"><button class="w3-button w3-green w3-third submitBusiness" style="margin-top: 20px; width: 100%">Submit Recommendation</button></div>
+          <div class="col-sm-8 alert alert-warning recommendTextFailed success-alert" style="display: none; margin-top: 13px;">
+            <strong>Oops!</strong> Make sure that all fields have been completed..
+          </div>
+        </div>
+
+
       </div>
     </div>
 
