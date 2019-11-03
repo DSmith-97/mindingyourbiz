@@ -100,13 +100,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 
     <h2 style="font-size: 22px; font-weight: bold">Questions? | Comments</h2>
     <p>Go ahead, ask me:</p>
+    <div class="alert alert-warning contactAdded fail-alert" style="display: none">
+      <strong>Oops!</strong> Please make sure that all fields have been completed..
+    </div>
     <div class="alert alert-success contactAdded success-alert" style="display: none">
       <strong>Got it!</strong> Your information has been sent successfully!
     </div>
     <div>
       <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><textarea class="w3-input w3-border" rows="8" placeholder="Message" required name="Message"></textarea></p>
+      <p><textarea id="comment_text" class="w3-input w3-border" rows="8" placeholder="Message" required name="Message"></textarea></p>
       <button class="w3-button w3-green w3-third sendContact">Send Message</button>
     </div>
   </div>

@@ -135,7 +135,7 @@ function addNewContact(data) {
 
   var contactName = $("input[name='Name']").val();
   var contactEmail = $("input[name='Email']").val();
-  var contactMessage = $("input[name='Message']").val();
+  var contactMessage = $("#comment_text").val();
 
   var newContact = {
     name: contactName,
@@ -165,6 +165,11 @@ function addNewContact(data) {
     // clean up alerts
     $(".success-alert").show();
     $(".success-alert").fadeOut(5000);
+    $(".w3-input").val("");
+  } else {
+    $(".fail-alert").show();
+    $(".fail-alert").fadeOut(3000);
+    $(".w3-input").val("");
   }
 }
 
