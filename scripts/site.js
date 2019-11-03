@@ -228,8 +228,7 @@ function submitBusiness(data) {
     $(".recommendTextFailed").show();
     $(".recommendTextFailed").fadeOut().delay(5)
     .fadeIn().delay(5).fadeOut().delay(5)
-    .fadeIn().delay(5).fadeOut().delay(5)
-    .fadeIn(5);
+    .fadeIn().delay(5).fadeOut().delay(5);
     $("#businessComment").val("");
     $(".w3-input").val("");
   }
