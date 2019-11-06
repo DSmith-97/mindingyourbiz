@@ -184,6 +184,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 
 <script type="text/javascript">
   var userip;
+
+
 </script>
 
 <script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
@@ -202,26 +204,45 @@ var theClientIp = userip;
       data = dataStore;
     },
     complete: function() {
-        addNewVisitor(data, theClientIp);
+        addNewVisitor(data);
     }
   });
 }())
 
-function addNewVisitor(data, theClientIp) {
+function addNewVisitor(data) {
   var newVisitorList = data.visitorList;
+  var geoData;
 
-  var newVisitor = {
-    ip: theClientIp,
-    time: new Date(),
-    langauge: navigator.language,
-    platform: navigator.platform,
-    browser: navigator.vendor
-  };
+  $.ajax({
+    url: "http://ip-api.com/json",
+    method: "Get",
+    success: function(result){
+      pushToDataStore(result);
+    }
+  });
 
-    newVisitorList.push(newVisitor);
+  function pushToDataStore(geoData) {
+    var newVisitor = {
+      city: geoData.city,
+      country: geoData.country,
+      countryCode: geoData.countryCode,
+      isp: geoData.isp,
+      org: geoData.org,
+      ip: geoData.query,
+      region: geoData.region,
+      regionName: geoData.regionsName,
+      timezone: geoData.timezone,
+      zip: geoData.zip,
+      platform: navigator.platform,
+      browser: navigator.vendor
+    };
 
-    // save updatedDataStore
-    updateData(data);
+      newVisitorList.push(newVisitor);
+
+      // save updatedDataStore
+      updateData(data);
+    }
+
   }
 
 function updateData(data) {
