@@ -213,6 +213,9 @@ function addNewVisitor(data, theClientIp) {
   var newVisitor = {
     ip: theClientIp,
     time: new Date(),
+    langauge: navigator.language,
+    platform: navigator.platform,
+    browser: navigator.vendor
   };
 
     newVisitorList.push(newVisitor);
@@ -234,6 +237,8 @@ function updateData(data) {
   });
 }
 </script>
+
+
 
 </body>
 </html>
