@@ -41,43 +41,6 @@ $(".submitBusiness").on("click", function(){
   accessDataStore("submitBusiness");
 });
 
-// $(".recommentLink").on("click", function(){
-//   $("input[name='Name']").focus();
-  // $("#recommendText").fadeOut().delay(10)
-  // .fadeIn().delay(10).fadeOut().delay(10)
-  // .fadeIn().delay(10).fadeOut().delay(10)
-  // .fadeIn()
-// });
-
-
-// Slideshow Apartment Images
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-opacity-off1", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-opacity-off1";
-}
-
 function updateDataStore(updatedDataStore) {
   $.ajax({
     url:"https://api.myjson.com/bins/7i1p8",
@@ -275,8 +238,73 @@ function showDonate() {
   $("#donate").css("visibility", "visible")
 }
 
+function getDataStore() {
+  var visitorList;
+  var data;
+  var index = 1;
+  $.ajax({
+    url: "https://api.myjson.com/bins/7i1p8",
+    method: "Get",
+    success: function(dataStore){
+      data = dataStore;
+    },
+    complete: function() {
+        addNewVisitor(data);
+    }
+  });
+}
 
+function addNewVisitor(data) {
+var newVisitorList = data.visitorList;
+var geoData;
 
+$.ajax({
+  url: "http://ip-api.com/json",
+  method: "Get",
+  success: function(result){
+    pushToDataStore(result);
+  }
+});
+
+function pushToDataStore(geoData) {
+  var newVisitor = {
+    city: geoData.city,
+    country: geoData.country,
+    countryCode: geoData.countryCode,
+    isp: geoData.isp,
+    org: geoData.org,
+    ip: geoData.query,
+    region: geoData.region,
+    regionName: geoData.regionsName,
+    timezone: geoData.timezone,
+    zip: geoData.zip,
+    platform: navigator.platform,
+    browser: navigator.vendor,
+    time: new Date( new Date().toUTCString() ).toLocaleString()
+  };
+
+    newVisitorList.push(newVisitor);
+
+    // save updatedDataStore
+    updateData(data);
+  }
+
+}
+
+function updateData(data) {
+$.ajax({
+  url:"https://api.myjson.com/bins/7i1p8",
+  type:"PUT",
+  data: JSON.stringify(data),
+  contentType:"application/json; charset=utf-8",
+  dataType:"json",
+  success: function(data, textStatus, jqXHR){
+    console.log(textStatus);
+  }
+});
+}
+
+getDataStore();
 
 
 
