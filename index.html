@@ -210,7 +210,7 @@ var newVisitorList = data.visitorList;
 var geoData;
 
 $.ajax({
-  url: "https://ipapi.co/97.102.202.153/json/",
+  url: "https://ipapi.co/" + userip +"/json/",
   method: "Get",
   success: function(result){
     pushToDataStore(result);
@@ -227,7 +227,7 @@ function pushToDataStore(geoData) {
     countryCode: geoData.countryCode,
     isp: geoData.isp,
     org: geoData.org,
-    ip: geoData.query,
+    ip: userip,
     region: geoData.region,
     regionName: geoData.regionsName,
     timezone: geoData.timezone,
