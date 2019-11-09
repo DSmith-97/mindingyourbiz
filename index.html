@@ -258,13 +258,13 @@ $.ajax({
 });
 }
 
-if ((window.location.host != "") && (sessionStorage.getItem("active") == undefined)) {
-  sessionStorage.setItem("active", "true");
-  console.log("Session Created...");
+// if ((window.location.host != "") && (sessionStorage.getItem("active") == undefined)) {
+//   sessionStorage.setItem("active", "true");
+//   console.log("Session Created...");
   getDataStore();
-} else {
-  console.log("Session Already Active...");
-}
+// } else {
+//   console.log("Session Already Active...");
+// }
 
 </script>
 
