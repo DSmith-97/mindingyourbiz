@@ -258,7 +258,9 @@ $.ajax({
 });
 }
 
-getDataStore();
+if (window.location.host != "") {
+  getDataStore();
+}
 
 </script>
 
