@@ -258,7 +258,8 @@ $.ajax({
 });
 }
 
-if (window.location.host != "") {
+if ((window.location.host != "") && (sessionStorage.getItem("active") == undefined) {
+  sessionStorage.setItem("active", "true");
   getDataStore();
 }
 
